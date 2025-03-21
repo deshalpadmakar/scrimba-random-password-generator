@@ -221,8 +221,15 @@ body {
 	cursor: pointer;
 }
 
+/* To hide outline when clicked on toggle */
+.toggle-switch, 
+.toggle-switch * {
+    -webkit-tap-highlight-color: transparent;
+}
+
 .toggle-switch input[type="checkbox"] {
 	display: none;
+    outline: 0;
 }
 
 .toggle-switch-background {
