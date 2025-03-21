@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>Password Generator</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+		<!-- Google Fonts - Inter and Source Code Pro for better typography -->
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+			rel="stylesheet"
+		/>
+        <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@500&display=swap" rel="stylesheet">
+		
+        <!-- Font Awesome for icons -->
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+			integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+			crossorigin="anonymous"
+			referrerpolicy="no-referrer"
+		/>
+		
+        <!-- External CSS file -->
+		<link rel="stylesheet" href="./index.css" />
+	</head>
+	<body>
+        <!-- Background animation container -->
+        <div class="background" id="background"></div>
+
+        <!-- Main container for the password generator -->
+		<div class="hero-wrapper">
+            <div class="hero-container">
+                <h1 class="hero-title">Password Generator</h1>
+                <p class="hero-subtitle">Never use an insecure password again.</p>
+                
+                <!-- Password display container -->
+                <div class="password-container">
+                    <p class="password" id="password-one"></p>
+                    <button class="copy-btn" id="copy-one-btn"><i class="fa-solid fa-copy"></i></button>
+                </div>
+                <div class="password-container">
+                    <p class="password" id="password-two"></p>
+                    <button class="copy-btn" id="copy-two-btn"><i class="fa-solid fa-copy"></i></button>
+                </div>
+            </div>
+		</div>
+
+        <!-- Password settings section -->
+        <div class="password-settings-wrapper">
+            <div class="password-settings-container">
+                <h2 class="settings-title">Password Settings</h2>
+
+                <!-- Password length slider -->
+                <div class="password-length-container">
+                    <div class="slider-label">
+                        <p>Password length</p>
+                        <p class="length-value" id="length-value">16</p>
+                    </div>
+                    <input type="range" min="6" max="100" value="16" class="slider" id="slider" />
+                </div>
+
+                <!-- Uppercase letters toggle -->
+                <div class="setting-item">
+                    <div class="setting-icon">
+                        <p>A</p>
+                    </div>
+                    <div class="setting-description">
+                        <p class="setting-name">Uppercase Letters</p>
+                        <p class="setting-detail">Include A-Z</p>
+                    </div>
+                    <label class="toggle-switch">
+                        <input type="checkbox" checked id="uppercase-checkbox" />
+                        <div class="toggle-switch-background">
+                            <div class="toggle-switch-handle"></div>
+                        </div>
+                    </label>
+                </div>
+
+                <!-- Lowercase letters toggle -->
+                <div class="setting-item">
+                    <div class="setting-icon">
+                        <p>a</p>
+                    </div>
+                    <div class="setting-description">
+                        <p class="setting-name">Lowercase Letters</p>
+                        <p class="setting-detail">Include A-Z</p>
+                    </div>
+                    <label class="toggle-switch">
+                        <input type="checkbox" checked id="lowercase-checkbox" />
+                        <div class="toggle-switch-background">
+                            <div class="toggle-switch-handle"></div>
+                        </div>
+                    </label>
+                </div>
+
+                <!-- Numbers toggle -->
+                <div class="setting-item">
+                    <div class="setting-icon">
+                        <p>#</p>
+                    </div>
+                    <div class="setting-description">
+                        <p class="setting-name">Numbers</p>
+                        <p class="setting-detail">Include 0-9</p>
+                    </div>
+                    <label class="toggle-switch">
+                        <input type="checkbox" checked id="number-checkbox" />
+                        <div class="toggle-switch-background">
+                            <div class="toggle-switch-handle"></div>
+                        </div>
+                    </label>
+                </div>
+
+                <!-- Special characters toggle -->
+                <div class="setting-item">
+                    <div class="setting-icon">
+                        <p>@</p>
+                    </div>
+                    <div class="setting-description">
+                        <p class="setting-name">Special Characters</p>
+                        <p class="setting-detail">Include !@#$%&*</p>
+                    </div>
+                    <label class="toggle-switch">
+                        <input type="checkbox" checked id="special-character-checkbox" />
+                        <div class="toggle-switch-background">
+                            <div class="toggle-switch-handle"></div>
+                        </div>
+                    </label>
+                </div>
+
+                <!-- Button to generate a new password -->
+                <div>
+                    <button class="generate-password-btn" id="generate-password-btn">
+                        <i class="fa-solid fa-arrows-rotate"></i>
+                        Generate New Password
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- JavaScript files -->
+		<script type="module" src="/src/AnimatedBackground.jsx"></script>
+		<script type="module" src="./index.js"></script>
+	</body>
+</html>
