@@ -17,6 +17,20 @@ const lowercaseCharactersArr = ["a","b","c","d","e","f","g","h","i","j","k","l",
 const numbersArr = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"]
 const specialCharacterArr = ["~","`","!","@","#","$","%","^","&","*","(",")","_","-","+","=","{","[","}","]",",","|",":",";","<",">",".","?", "/"]
 
+// Triggers vibration on mobil
+function triggerHapticFeedback() {
+    if ("vibrate" in navigator) {
+        // Android Vibration API
+        navigator.vibrate(5) // Vibrates for 5ms
+    } else if (window?.webkit?.messageHandlers?.haptic) {
+        // iOS WebKit Haptic Feedback
+        window.webkit.messageHandlers.haptic.postMessage("light")
+    } else if (window?.navigator?.vibrate) {
+        // Fallback for other browsers supporting vibration
+        window.navigator.vibrate(5)
+    }
+}
+
 // Function to generate and display new passwords
 function renderPassword() {
     passwordOneEl.textContent = getRandomPassword()
@@ -103,24 +117,30 @@ sliderEl.addEventListener("input", function () {
     
     // Re-render password
     renderPassword()
+
+    triggerHapticFeedback() // trigger haptic feedback on mobil
 })
 
 
 // Event listeners for checkboxes to regenerate password on toggle
 uppercaseCheckboxEl.addEventListener("click", function () {
     renderPassword()
+    triggerHapticFeedback() // trigger haptic feedback on mobil
 })
 
 lowercaseCheckboxEl.addEventListener("click", function () {
     renderPassword()
+    triggerHapticFeedback() // trigger haptic feedback on mobil
 })
 
 numberCheckboxEl.addEventListener("click", function () {
     renderPassword()
+    triggerHapticFeedback() // trigger haptic feedback on mobil
 })
 
 specialCharacterCheckboxEl.addEventListener("click", function () {
     renderPassword()
+    triggerHapticFeedback() // trigger haptic feedback on mobil
 })
 
 
@@ -138,4 +158,5 @@ copyTwoBtnEl.addEventListener("click", function () {
 generatePasswordBtnEl.addEventListener("click", function() {
     // re-render new password
     renderPassword()
+    triggerHapticFeedback() // trigger haptic feedback on mobil
 })
